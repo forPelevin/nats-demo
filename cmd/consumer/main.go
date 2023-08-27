@@ -84,9 +84,9 @@ func runConsumers() error {
 			}
 
 			for _, msg := range msgs {
-				nakErr := msg.Nak()
-				if nakErr != nil {
-					log.Printf("sub nak err: %s\n", nakErr)
+				ackErr := msg.Ack()
+				if ackErr != nil {
+					log.Printf("sub ack err: %s\n", ackErr)
 				}
 				totalReceived++
 				log.Printf("total received: %d\n", totalReceived)
